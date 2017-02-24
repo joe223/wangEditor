@@ -16,6 +16,7 @@ _e(function (E, $) {
         // 自定义上传至七牛
         var token = config.uptokenstr;
         var domainstr = config.domainstr;
+        var imgSuffix = config.imgSuffix || '';
         // 获取配置中的上传事件
         var uploadImgFns = config.uploadImgFns;
         var onload = uploadImgFns.onload;
@@ -46,7 +47,7 @@ _e(function (E, $) {
         function insertImg(src, event) {
             var img = document.createElement('img');
             img.onload = function () {
-                var html = '<img src="' + src + '" style="max-width:100%;"/>';
+                var html = '<img src="' + src + imgSuffix + '" style="max-width:100%;"/>';
                 editor.command(event, 'insertHtml', html);
 
                 E.log('已插入图片，地址 ' + src);
@@ -152,14 +153,14 @@ _e(function (E, $) {
                     // 隐藏进度条
                     editor.hideUploadProgress();
                     var data = JSON.parse(xhr.responseText);
-                    editor.command(null, 'insertHtml', '<img src="' + domainstr + data.key + '!w800" style="max-width:100%;"/>');
+                    insertImg( domainstr + data.key, event);
                 }
             };
             xhr.send(formData);
             timeoutId = setTimeout(timeoutCallback, uploadTimeout);
             E.log('开始上传...并开始超时计算');
         };
-        
+
         // -------- xhr 上传图片 --------
         editor.xhrUploadImg = function (opt) {
             // opt 数据
