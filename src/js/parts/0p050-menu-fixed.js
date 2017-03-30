@@ -16,13 +16,13 @@ _e(function (E, $) {
         var $editorContainer = editor.$editorContainer;
         var editorTop = $editorContainer.offset().top;
         var editorHeight = $editorContainer.outerHeight();
-        
+
         var $menuContainer = editor.menuContainer.$menuContainer;
         var menuCssPosition = $menuContainer.css('position');
         var menuCssTop = $menuContainer.css('top');
         var menuTop = $menuContainer.offset().top;
         var menuHeight = $menuContainer.outerHeight();
-        
+
         var $txt = editor.txt.$txt;
 
         E.$window.scroll(function () {
@@ -31,20 +31,27 @@ _e(function (E, $) {
                 return;
             }
 
+            // 每次滚动都计算
             var sTop = E.$window.scrollTop();
-
+            var txtTop = $txt.offset().top;
+// console.log( "sTop:" + sTop );
+// console.log( "menuHeight:" + menuHeight );
+// console.log( "editorTop:" + editorTop );
+// console.log( "txtTop:" + txtTop );
+// console.log(sTop >= txtTop - menuHeight - menuFixed);
+// console.log(sTop + menuFixed + menuHeight + 30 < editorTop + editorHeight);
             // 需要重新计算宽度，因为浏览器可能此时出现滚动条
             var menuWidth = $menuContainer.width();
 
             // 如果 menuTop === 0 说明此前编辑器一直隐藏，后来显示出来了，要重新计算相关数据
             if (menuTop === 0) {
                 menuTop = $menuContainer.offset().top;
-                editorTop = $editorContainer.offset().top;
                 editorHeight = $editorContainer.outerHeight();
                 menuHeight = $menuContainer.outerHeight();
+                console.log("此前编辑器一直隐藏，后来显示出来了，要重新计算相关数据");
             }
 
-            if (sTop >= menuTop && sTop + menuFixed + menuHeight + 30 < editorTop + editorHeight) {
+            if (sTop >= txtTop - menuHeight - menuFixed && sTop + menuFixed + 2 * menuHeight + 30 < txtTop + editorHeight) {
                 // 吸顶
                 $menuContainer.css({
                     position: 'fixed',
