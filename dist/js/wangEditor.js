@@ -1,3 +1,7 @@
+/**
+ * https://github.com/joe223/wangEditor
+ * @ joe223
+ */
 (function (factory) {
     if (typeof window.define === 'function') {
         if (window.define.amd) {
@@ -26,7 +30,7 @@
         factory(window.jQuery);
     }
 })(function($){
-    
+
     // 验证是否引用jquery
     if (!$ || !$.fn || !$.fn.jquery) {
         alert('在引用wangEditor.js之前，先引用jQuery，否则无法使用 wangEditor');
@@ -41,6 +45,7 @@
             fn(E, $);
         }
     };
+
 // 定义构造函数
 (function (window, $) {
     if (window.wangEditor) {
@@ -8481,8 +8486,8 @@ _e(function (E, $) {
                 $menuContainer.width(menuWidth);
 
                 // 增加body margin-top
-                E.$body.css({
-                    'margin-top': bodyMarginTop + menuHeight
+                $editorContainer.css({
+                    'padding-top': bodyMarginTop + menuHeight
                 });
 
                 // 记录
@@ -8500,8 +8505,11 @@ _e(function (E, $) {
                 $menuContainer.css('width', '100%');
 
                 // 还原 body margin-top
-                E.$body.css({
-                    'margin-top': bodyMarginTop
+                // E.$body.css({
+                //     'margin-top': bodyMarginTop
+                // });
+                $editorContainer.css({
+                    'padding-top': bodyMarginTop
                 });
 
                 // 撤销记录

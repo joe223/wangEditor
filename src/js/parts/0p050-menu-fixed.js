@@ -62,8 +62,8 @@ _e(function (E, $) {
                 $menuContainer.width(menuWidth);
 
                 // 增加body margin-top
-                E.$body.css({
-                    'margin-top': bodyMarginTop + menuHeight
+                $editorContainer.css({
+                    'padding-top': bodyMarginTop + menuHeight
                 });
 
                 // 记录
@@ -81,8 +81,11 @@ _e(function (E, $) {
                 $menuContainer.css('width', '100%');
 
                 // 还原 body margin-top
-                E.$body.css({
-                    'margin-top': bodyMarginTop
+                // E.$body.css({
+                //     'margin-top': bodyMarginTop
+                // });
+                $editorContainer.css({
+                    'padding-top': bodyMarginTop
                 });
 
                 // 撤销记录

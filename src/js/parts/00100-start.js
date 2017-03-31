@@ -1,3 +1,7 @@
+/**
+ * https://github.com/joe223/wangEditor
+ * @ joe223
+ */
 (function (factory) {
     if (typeof window.define === 'function') {
         if (window.define.amd) {
@@ -26,7 +30,7 @@
         factory(window.jQuery);
     }
 })(function($){
-    
+
     // 验证是否引用jquery
     if (!$ || !$.fn || !$.fn.jquery) {
         alert('在引用wangEditor.js之前，先引用jQuery，否则无法使用 wangEditor');
