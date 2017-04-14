@@ -33,13 +33,12 @@ _e(function (E, $) {
 
             // 每次滚动都计算
             var sTop = E.$window.scrollTop();
-            var txtTop = $txt.offset().top;
+            var containerTop = $editorContainer.offset().top;
 // console.log( "sTop:" + sTop );
 // console.log( "menuHeight:" + menuHeight );
 // console.log( "editorTop:" + editorTop );
-// console.log( "txtTop:" + txtTop );
-// console.log(sTop >= txtTop - menuHeight - menuFixed);
-// console.log(sTop + menuFixed + menuHeight + 30 < editorTop + editorHeight);
+// console.log(sTop >= containerTop - menuFixed);
+// console.log(sTop + 30 < containerTop + editorHeight);
             // 需要重新计算宽度，因为浏览器可能此时出现滚动条
             var menuWidth = $menuContainer.width();
 
@@ -51,7 +50,7 @@ _e(function (E, $) {
                 console.log("此前编辑器一直隐藏，后来显示出来了，要重新计算相关数据");
             }
 
-            if (sTop >= txtTop - menuHeight - menuFixed && sTop + menuFixed + 2 * menuHeight + 30 < txtTop + editorHeight) {
+            if (sTop >= containerTop - menuFixed && sTop + menuHeight + 30 < containerTop + editorHeight) {
                 // 吸顶
                 $menuContainer.css({
                     position: 'fixed',
