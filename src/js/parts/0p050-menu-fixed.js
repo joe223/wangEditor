@@ -34,11 +34,6 @@ _e(function (E, $) {
             // 每次滚动都计算
             var sTop = E.$window.scrollTop();
             var containerTop = $editorContainer.offset().top;
-// console.log( "sTop:" + sTop );
-// console.log( "menuHeight:" + menuHeight );
-// console.log( "editorTop:" + editorTop );
-// console.log(sTop >= containerTop - menuFixed);
-// console.log(sTop + 30 < containerTop + editorHeight);
             // 需要重新计算宽度，因为浏览器可能此时出现滚动条
             var menuWidth = $menuContainer.width();
 

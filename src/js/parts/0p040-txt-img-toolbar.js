@@ -4,7 +4,7 @@ _e(function (E, $) {
     if (E.userAgent.indexOf('MSIE 8') > 0) {
         return;
     }
-    
+
     E.plugin(function () {
         var editor = this;
         var lang = editor.config.lang;
@@ -111,7 +111,7 @@ _e(function (E, $) {
             if (isRendered) {
                 return;
             }
-            
+
             // 绑定事件
             bindToolbarEvent();
             bindDragEvent();
@@ -138,7 +138,7 @@ _e(function (E, $) {
             $toolbar.append($triangle)
                     .append($menuContainer)
                     .append($linkInputContainer);
-                    
+
             editor.$editorContainer.append($toolbar).append($dragPoint);
             isRendered = true;
         }
@@ -186,11 +186,10 @@ _e(function (E, $) {
                     var width = img.width;
                     var height = img.height;
                     width = width * 1.1;
-                    height = height * 1.1;
 
                     $currentImg.css({
                         width: width + 'px',
-                        height: height + 'px'
+                        // height: height + 'px'
                     });
                 };
                 customCommand(e, function () {
@@ -205,11 +204,10 @@ _e(function (E, $) {
                     var width = img.width;
                     var height = img.height;
                     width = width * 0.9;
-                    height = height * 0.9;
 
                     $currentImg.css({
                         width: width + 'px',
-                        height: height + 'px'
+                        // height: height + 'px'
                     });
                 };
                 customCommand(e, function () {
@@ -477,7 +475,7 @@ _e(function (E, $) {
             // disable 菜单
             editor.disableMenusExcept();
         }
-        
+
         // 隐藏 toolbar
         function hide() {
             if ($currentImg == null) {
@@ -524,7 +522,7 @@ _e(function (E, $) {
                 return;
             }
 
-            // ---------- 不是表情图标 ---------- 
+            // ---------- 不是表情图标 ----------
 
             // 渲染
             render();
@@ -545,7 +543,7 @@ _e(function (E, $) {
             // 阻止冒泡
             e.preventDefault();
             e.stopPropagation();
-            
+
         }).on('click keydown scroll', function (e) {
             if (!isOnDrag) {
                 setTimeout(hide, 100);
