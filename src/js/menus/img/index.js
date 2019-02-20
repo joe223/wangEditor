@@ -61,7 +61,7 @@ Image.prototype = {
                         fn: e => {
                             const $img = editor._selectedImg
                             if ($img) {
-                                $img.css('max-width', `${e.target.value}%`)
+                                $img.css('width', `${e.target.value}%`)
                             }
                             // 返回 true，表示该事件执行完之后，panel 要关闭。否则 panel 不会关闭
                         }
