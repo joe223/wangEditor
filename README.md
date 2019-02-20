@@ -1,5 +1,9 @@
 
-# wangEditor
+# wangEditor3
+
+## Changelog
+使用拖动条更灵活地调整图片大小
+![image](https://user-images.githubusercontent.com/10026019/53083258-80b0f700-3539-11e9-9361-783d21fe1f99.png)
 
 ## 介绍
 
